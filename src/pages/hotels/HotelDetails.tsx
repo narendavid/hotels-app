@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { getHotelService, updateHotelService } from '../../services/hotel'
+import { getHotelService } from '../../services/hotel'
 import Toggle from '../../components/inputs/Toggle'
-import { Details, Update } from '../../components/hotels'
+import { Details } from '../../components/hotels'
 import { Hotel } from '../../types'
+import { isAxiosError } from 'axios'
 
 const HotelDetails = () => {
 
@@ -34,29 +35,17 @@ const HotelDetails = () => {
             setLoading(true);
             const { data: hotel } = await getHotelService(hotelId)
             setHotel(hotel)
-        } catch (error) {
-            console.log(error)
+        } catch (error: unknown) {
+            if (isAxiosError(error)) {
+                if (error.response?.status === 404) {
+                    navigate('/hotels');
+                }
+            } else {
+                console.error('An unexpected error occurred:', error);
+            }
         } finally {
             setLoading(false)
         }
-    }
-
-    const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        try {
-            await updateHotelService(hotel)
-            navigate('/hotels')
-        } catch (error) {
-            alert(error)
-            console.error(error)
-        }
-    }
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setHotel((prevValue) => ({
-            ...prevValue,
-            [event.target.name]: event.target.value
-        }))
     }
 
     return (
@@ -76,19 +65,12 @@ const HotelDetails = () => {
                 loading ?
                     <div>Loading...</div> :
                     <div>
-                        {
-                            update ?
-                                <Update
-                                    hotel={hotel}
-                                    onChange={handleChange}
-                                    onSubmit={handleSubmit}
-                                />
-                                :
-                                <Details
-                                    hotel={hotel}
-                                    goToCreateRoom={goToCreateRoom}
-                                />
-                        }
+                        <Details
+                            hotel={hotel}
+                            goToCreateRoom={goToCreateRoom}
+                            update={update}
+                            setUpdate={setUpdate}
+                        />
                     </div>
             }
         </div>

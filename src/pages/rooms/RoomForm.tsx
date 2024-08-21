@@ -2,20 +2,22 @@ import React, { useState } from 'react'
 import Input from '../../components/inputs/Input'
 import { Room } from '../../types'
 import { createRoomService } from '../../services/room'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Header from '../../components/headers/Header'
 
 const FormRoom = () => {
 
     const { hotelId } = useParams()
+    const navigator = useNavigate()
     const [room, setRoom] = useState<Room>({
         name: "",
         description: "",
+        type: "single",
         enabled: true,
         hotelId: hotelId || '',
-        price: 0,
-        roomCapacity: 0,
-        tax: 0
+        price: "",
+        roomCapacity: "",
+        tax: ""
     })
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,6 +31,7 @@ const FormRoom = () => {
         e.preventDefault()
         try {
             await createRoomService(room)
+            navigator(`/hotels/${hotelId}`)
         } catch (error) {
             alert(error)
             console.error(error)

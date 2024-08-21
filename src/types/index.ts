@@ -12,11 +12,12 @@ export interface Hotel {
 export interface Room {
     id?: string
     name: string
+    type: 'single' | 'double' | 'suite'
     description: string
     hotelId: string
-    roomCapacity: number
-    price: number
-    tax: number
+    roomCapacity: number | string
+    price: number | string
+    tax: number | string
     enabled: boolean
 }
 

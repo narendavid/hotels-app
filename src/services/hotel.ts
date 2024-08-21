@@ -18,6 +18,7 @@ export const createHotelService = (hotel: Hotel) => {
 }
 
 export const updateHotelService = (hotel: Hotel) => {
+    delete hotel.rooms
     return http.put(`/hotels/${hotel.id}`, { ...hotel })
 }
 

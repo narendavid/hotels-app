@@ -1,43 +1,26 @@
 {
   "hotels": [
     {
-      "id": "8808",
-      "name": "Mañana",
-      "location": "bruks",
-      "enabled": false
-    },
-    {
-      "id": "2bf5",
-      "name": "Bahama",
-      "location": "Dondesea",
-      "enabled": false
-    },
-    {
-      "id": "7f27",
-      "name": "Martoco",
-      "location": "New York",
-      "enabled": true
-    },
-    {
-      "id": "6481",
-      "name": "De cameron",
-      "location": "SAI",
+      "id": "2f45",
+      "name": "smartin",
+      "location": "fdsaaaaaa",
       "enabled": true,
-      "email": "test@mail.com",
-      "phone": "000000",
+      "email": "fsdfsdf",
+      "phone": "3423",
       "star": 0
     }
   ],
   "rooms": [
     {
-      "id": "8caf",
-      "name": "Apartamento 211",
-      "description": "portales",
+      "id": "a7e1",
+      "name": "usdusfd",
+      "description": "ujhfsdf",
+      "type": "single",
       "enabled": true,
-      "hotelId": "7f27",
-      "price": "123",
-      "roomCapacity": "23",
-      "tax": "433"
+      "hotelId": "2f45",
+      "price": "232322323",
+      "roomCapacity": "2",
+      "tax": "32"
     }
   ],
   "reservations": []

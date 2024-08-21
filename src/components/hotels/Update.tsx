@@ -11,7 +11,7 @@ interface Props {
 const Update = ({ hotel, onChange, onSubmit }: Props) => {
     return (
         <div>
-            <form onSubmit={onSubmit} className="flex flex-col gap-5 mx-auto">
+            <form onSubmit={onSubmit} className="flex flex-col gap-3 mx-auto">
                 <Input
                     name="name"
                     onChange={onChange}

@@ -1,8 +1,8 @@
 import http from "../core/http"
 import { Room } from "../types"
 
-export const getRoomService = (hotelId: string) => {
-    return http.get(`/rooms/${hotelId}`)
+export const getRoomService = (roomId: string) => {
+    return http.get(`/rooms/${roomId}`)
 }
 
 export const getRoomsService = (hotelId: string) => {
@@ -13,8 +13,8 @@ export const createRoomService = (data: Room) => {
     return http.post('/rooms', data)
 }
 
-export const updateRoomService = (hotelId: string) => {
-    return http.put(`/rooms/${hotelId}`)
+export const updateRoomService = (room: Room) => {
+    return http.put(`/rooms/${room.id}`, { ...room })
 }
 
 export const deleteRoomService = (id: string) => {

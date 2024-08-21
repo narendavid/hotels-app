@@ -1,6 +1,5 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-
-import Hotel from './pages/Hotel'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { Hotel } from './pages'
 import { HotelDetails, HotelForm, HotelList } from './pages/hotels'
 import { RoomDetails, RoomForm, RoomList } from './pages/rooms'
 import { ReservationForm, ReservationList } from './pages/reservations'
@@ -20,6 +19,7 @@ const App = () => {
                     </Route>
                     <Route path='/reservations' element={<ReservationList />} />
                     <Route path='/reservations/new' element={<ReservationForm />} />
+                    <Route path='*' element={<Navigate to='/hotels' replace />} />
                 </Routes>
             </BrowserRouter>
         </div>
