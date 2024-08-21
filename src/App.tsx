@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Hotel } from './pages'
 import { HotelDetails, HotelForm, HotelList } from './pages/hotels'
-import { RoomDetails, RoomForm, RoomList } from './pages/rooms'
+import { RoomDetails, RoomForm } from './pages/rooms'
 import { ReservationForm, ReservationList } from './pages/reservations'
 
 const App = () => {
@@ -13,7 +13,6 @@ const App = () => {
                         <Route path='/hotels' element={<HotelList />} />
                         <Route path='/hotels/new' element={<HotelForm />} />
                         <Route path='/hotels/:hotelId' element={<HotelDetails />} />
-                        <Route path='/hotels/:hotelId/rooms' element={<RoomList />} />
                         <Route path='/hotels/:hotelId/rooms/new' element={<RoomForm />} />
                         <Route path='/hotels/:hotelId/rooms/:roomId' element={<RoomDetails />} />
                     </Route>
