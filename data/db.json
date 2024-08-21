@@ -1,42 +1,44 @@
 {
   "hotels": [
     {
-      "id": "swef",
-      "name": "Hotel Example",
+      "id": "8808",
+      "name": "Mañana",
+      "location": "bruks",
+      "enabled": false
+    },
+    {
+      "id": "2bf5",
+      "name": "Bahama",
+      "location": "Dondesea",
+      "enabled": false
+    },
+    {
+      "id": "7f27",
+      "name": "Martoco",
       "location": "New York",
       "enabled": true
     },
     {
-      "id": "cda6",
-      "name": "Loquesea",
-      "location": "New York"
-    },
-    {
-      "id": "8808",
-      "name": "Ma;ana",
-      "location": "bruks"
+      "id": "6481",
+      "name": "De cameron",
+      "location": "SAI",
+      "enabled": true,
+      "email": "test@mail.com",
+      "phone": "000000",
+      "star": 0
     }
   ],
   "rooms": [
     {
-      "id": "1",
-      "hotelId": 1,
-      "roomType": "Single",
-      "price": 100,
-      "tax": 10,
-      "enabled": true
+      "id": "8caf",
+      "name": "Apartamento 211",
+      "description": "portales",
+      "enabled": true,
+      "hotelId": "7f27",
+      "price": "123",
+      "roomCapacity": "23",
+      "tax": "433"
     }
   ],
-  "reservations": [
-    {
-      "id": "1",
-      "hotelId": 1,
-      "roomId": 1,
-      "guestName": "John Doe",
-      "email": "john@example.com",
-      "checkIn": "2024-09-01",
-      "checkOut": "2024-09-05",
-      "guests": 1
-    }
-  ]
+  "reservations": []
 }

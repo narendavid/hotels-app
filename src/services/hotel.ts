@@ -1,22 +1,26 @@
 import http from "../core/http"
 import { Hotel } from "../types"
 
-export const getHotel = (id: string) => {
-    return http.get(`/hotels/${id}`)
+export const getHotelService = (id: string) => {
+    return http.get(`/hotels/${id}?_embed=rooms`)
 }
 
-export const getHotels = () => {
-    return http.get('/hotels')
+export const getHotelsService = () => {
+    return http.get(`/hotels?_sort=enabled&_order=desc`)
 }
 
-export const createHotel = (data: Hotel) => {
-    return http.post('/hotels', data)
+export const getHotelsByNameService = (name: string) => {
+    return http.get(`/hotels?name_like=${name.trim()}`)
 }
 
-export const updateHotel = (id: string) => {
-    return http.put(`/hotels/${id}`)
+export const createHotelService = (hotel: Hotel) => {
+    return http.post('/hotels', hotel)
 }
 
-export const deleteHotel = (id: string) => {
+export const updateHotelService = (hotel: Hotel) => {
+    return http.put(`/hotels/${hotel.id}`, { ...hotel })
+}
+
+export const deleteHotelService = (id: string) => {
     return http.delete(`/hotels/${id}`)
 }
